@@ -1,0 +1,44 @@
+#main-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  max-height: 64px;
+  width: 90%;
+  max-width: 1440px;
+  margin: auto;
+  padding: 5px 0;
+
+  .buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: 15px;
+    padding: 5px 0;
+  }
+
+  .button {
+    margin-right: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+
+    .logo-box {
+      max-height: 54px;
+      display: flex;
+      flex-flow: row nowrap;
+      margin-top: 10px;
+      align-items: center;
+
+      img {
+        max-height: inherit;
+      }
+
+      .website-name {
+        font-weight: 700;
+        font-size: 40px;
+        padding-left: 10px;
+      }
+    }
+  }
+}

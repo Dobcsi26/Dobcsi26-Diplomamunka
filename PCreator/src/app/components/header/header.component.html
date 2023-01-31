@@ -1,0 +1,15 @@
+<div id="main-header">
+    <a routerLink="/home">
+        Home
+    </a>
+    <div class="buttons">
+        <div class="button">
+            <button *ngIf="!loggedInUser" [routerLink]="'/login'" mat-raised-button class="submit">Login</button>
+            <button *ngIf="loggedInUser" [routerLink]="'/login'" mat-raised-button class="submit" (click)="logout()">Logout</button>
+        </div>
+        <div class="button">
+            <button *ngIf="!loggedInUser" [routerLink]="'/register'" mat-raised-button class="submit">Registration</button>
+            <button *ngIf="loggedInUser" [routerLink]="'/singleadvertisement'" mat-raised-button class="submit">Create Your Setup</button>
+        </div>
+    </div>
+</div>

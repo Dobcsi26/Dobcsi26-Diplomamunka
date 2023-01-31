@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "jobling-web": {
+      "hosting": {
+        "JOBling": [
+          "jobling-web"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "jobling-web"
+  }
+}
