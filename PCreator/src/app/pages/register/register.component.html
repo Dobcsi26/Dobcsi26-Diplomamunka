@@ -2,7 +2,7 @@
 
     <h1 class="text">Registration</h1> 
     
-    <form [formGroup]="signUpFormUser" (ngSubmit)="onSubmitSeeker()" class="form">
+    <form [formGroup]="signUpFormUser" (ngSubmit)="onSubmit()" class="form">
         <mat-form-field class="full-width" appearance="fill">
             <mat-label for="email" class="label-text">Email</mat-label>
             <input type="email" matInput formControlName="email">

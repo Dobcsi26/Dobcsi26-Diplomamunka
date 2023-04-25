@@ -26,7 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     // Angular    

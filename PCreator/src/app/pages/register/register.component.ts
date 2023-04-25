@@ -2,9 +2,9 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { UserServiceService } from 'src/app/services/user-service.service';
-import { user } from '../../models/user';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/models/user';
 
 
 @Component({
@@ -21,28 +21,26 @@ export class RegisterComponent implements OnInit {
   });
 
 
-  choose: any;
-
-  constructor(private router: Router, private location: Location, private authService: AuthService, private userService: UserServiceService) { }
+  constructor(private router: Router, private location: Location, private authService: AuthService, private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmitSeeker() {
-    console.log(this.signUpFormUser.value);
+  onSubmit() {
     this.authService.signup(this.signUpFormUser.get('email')?.value, this.signUpFormUser.get('pw')?.value).then(cred => {
-      console.log(cred);
-      const seeker: user = {
+      
+      const user: User = {
         id: cred.user?.uid as string,
         email: this.signUpFormUser.get('email')?.value,
+    
       };
-      this.userService.createSeeker(seeker).then(_ => {
+      this.userService.create(user).then(_ => {
         console.log('User added successfully.');
         this.router.navigateByUrl('/home');
-
       }).catch(error => {
         console.error(error);
       })
+  
     }).catch(error => {
       console.error(error);
     });

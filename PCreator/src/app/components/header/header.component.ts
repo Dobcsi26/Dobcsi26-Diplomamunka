@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit  {
 
   ngOnInit(): void {
     this.authService.isUserLoggedIn().subscribe(user => {
-      console.log(user);
+      this.authService.getID;
       this.loggedInUser = user;
       localStorage.setItem('user', JSON.stringify(this.loggedInUser));
     }, error => {

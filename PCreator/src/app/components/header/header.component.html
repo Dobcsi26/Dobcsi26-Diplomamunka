@@ -1,6 +1,6 @@
 <div id="main-header">
     <a routerLink="/home">
-        Home
+       Home
     </a>
     <div class="buttons">
         <div class="button">
@@ -9,7 +9,7 @@
         </div>
         <div class="button">
             <button *ngIf="!loggedInUser" [routerLink]="'/register'" mat-raised-button class="submit">Registration</button>
-            <button *ngIf="loggedInUser" [routerLink]="'/singleadvertisement'" mat-raised-button class="submit">Create Your Setup</button>
+            <button *ngIf="loggedInUser" [routerLink]="'/pcreate'" mat-raised-button class="submit">Create Your Setup</button>
         </div>
     </div>
 </div>

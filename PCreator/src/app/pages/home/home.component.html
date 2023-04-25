@@ -1,1 +1,6 @@
-NEWS!
+<div class="container">
+    <div class="news" *ngFor="let new1 of news; let i = index;">
+        <h1><b>{{new1.title}}</b></h1>
+        <h4>{{new1.body}}</h4>
+    </div>
+</div>
