@@ -1,4 +1,5 @@
 export interface Computer {
+    name: string;
     cpu: string;
     gpu: string;
     hdd: string;
@@ -10,4 +11,5 @@ export interface Computer {
     id: string;
     userStandard: string;
     userWorker: string;
+    stage: string
 }

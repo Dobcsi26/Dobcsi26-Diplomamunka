@@ -8,13 +8,12 @@ import { User } from 'src/app/models/models/user';
 
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-lists',
+  templateUrl: './lists.component.html',
+  styleUrls: ['./lists.component.scss']
 })
-export class HeaderComponent implements OnInit  {
+export class ListsComponent implements OnInit {
 
-  loggedInUser?: firebase.default.User | null;
   tmpUser?: User | null;
   permission?: number;
 
@@ -23,14 +22,6 @@ export class HeaderComponent implements OnInit  {
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem('user') as string) as firebase.default.User;
 
-    this.authService.isUserLoggedIn().subscribe(user => {
-      this.loggedInUser = user;
-      localStorage.setItem('user', JSON.stringify(this.loggedInUser));
-    }, error => {
-      console.error(error);
-      localStorage.setItem('user', JSON.stringify('null'));
-    });
-
     this.userService.getById(user.uid).subscribe(data => {
       this.tmpUser = data;
       this.permission = this.tmpUser?.permission;
@@ -38,18 +29,6 @@ export class HeaderComponent implements OnInit  {
     }, error => {
       console.error(error);
     });
-
-
   }
 
-
-  logout(_?: boolean) {
-    this.authService.logout().then(() => {
-      this.router.navigateByUrl('/home');
-    }).catch(error => {
-      console.error(error);
-    });
-  }
-
-  
 }

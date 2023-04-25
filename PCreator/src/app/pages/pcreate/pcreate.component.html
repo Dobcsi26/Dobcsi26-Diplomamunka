@@ -5,6 +5,11 @@
     <form [formGroup]="compterCreateForm" (ngSubmit)="onSubmit()" class="form">
 
         <mat-form-field class="full-width" appearance="fill">
+            <mat-label class="label-text" for="name">Name your setup </mat-label>
+            <input matInput type="text" formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
             <mat-label for="CPU" class="label-text">CPU</mat-label>
             <mat-select type="text" matInput formControlName="CPU">
                 <mat-option value={{cpu.id}} *ngFor="let cpu of cpus; let i = index;">{{cpu.name}}</mat-option>

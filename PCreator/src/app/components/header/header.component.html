@@ -9,7 +9,16 @@
         </div>
         <div class="button">
             <button *ngIf="!loggedInUser" [routerLink]="'/register'" mat-raised-button class="submit">Registration</button>
-            <button *ngIf="loggedInUser" [routerLink]="'/pcreate'" mat-raised-button class="submit">Create Your Setup</button>
+            <button *ngIf="permission === 1" [routerLink]="'/pcreate'" mat-raised-button class="submit">Create Your Setup</button>
+        </div>
+        <div class="button" *ngIf="permission === 1">
+            <button [routerLink]="'/lists'" mat-raised-button class="submit">Saved Computers</button>
+        </div>
+        <div class="button" *ngIf="permission === 2">
+            <button [routerLink]="'/lists'" mat-raised-button class="submit">List Orders</button>
+        </div>
+        <div class="button" *ngIf="permission === 3">
+            <button [routerLink]="'/lists'" mat-raised-button class="submit">Configure Database</button>
         </div>
     </div>
 </div>

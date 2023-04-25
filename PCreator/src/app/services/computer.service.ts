@@ -8,6 +8,7 @@ import { Computer } from '../models/models/pc';
 export class ComputerService {
 
   collectionName = 'computer';
+  collectionNameStandard = 'userStandard';
 
   constructor(private afs: AngularFirestore) { }
 
@@ -29,5 +30,13 @@ export class ComputerService {
 
   delete(id: string) {
     return this.afs.collection<Computer>(this.collectionName).doc(id).delete();
+  }
+
+  getPCbyStandardUserID(userID: string) {
+    return this.afs.collection<Computer>(this.collectionName, ref => ref.where('userStandard', '==', userID)).valueChanges();
+  }
+
+  getPCbyWorkerUserID(userID: string) {
+    return this.afs.collection<Computer>(this.collectionName, ref => ref.where('userWorker', '==', userID)).valueChanges();
   }
 }

@@ -14,6 +14,8 @@ import { PC_case } from 'src/app/models/models/pc_components/pc_case';
 import { PSU } from 'src/app/models/models/pc_components/psu';
 import { RAM } from 'src/app/models/models/pc_components/ram';
 import { SSD } from 'src/app/models/models/pc_components/ssd';
+import { User } from 'src/app/models/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -22,8 +24,11 @@ import { SSD } from 'src/app/models/models/pc_components/ssd';
   styleUrls: ['./pcreate.component.scss']
 })
 export class PcreateComponent implements OnInit {
+  tmpUser?: User | null;
+  id?: string;
 
   compterCreateForm = new FormGroup({
+    name: new FormControl(''),
     CPU: new FormControl(''),
     GPU: new FormControl(''),
     HDD: new FormControl(''),
@@ -48,10 +53,20 @@ export class PcreateComponent implements OnInit {
       private location: Location,
       private authService: AuthService,
       private pcService: ComputerService,
-      private pcomponentService: PcomponentsService
+      private pcomponentService: PcomponentsService,
+      private userService: UserService
          ) { }
 
   ngOnInit(): void {
+    const user = JSON.parse(localStorage.getItem('user') as string) as firebase.default.User;
+
+    this.userService.getById(user.uid).subscribe(data => {
+      this.tmpUser = data;
+      this.id = this.tmpUser?.id;
+    }, error => {
+      console.error(error);
+    });
+
     this.pcomponentService.getAllCPU().subscribe((data: Array<CPU>) => {
       console.log(data);
       this.cpus = data;
@@ -88,6 +103,7 @@ export class PcreateComponent implements OnInit {
 
   onSubmit() {
     const computer: Computer = {
+      name: this.compterCreateForm.get('name')?.value,
       cpu: this.compterCreateForm.get('CPU')?.value,
       gpu: this.compterCreateForm.get('GPU')?.value,
       hdd: this.compterCreateForm.get('HDD')?.value,
@@ -97,8 +113,9 @@ export class PcreateComponent implements OnInit {
       ram: this.compterCreateForm.get('RAM')?.value,
       ssd: this.compterCreateForm.get('SSD')?.value,
       id: '1',
-      userStandard: 'this.authService.getID as any',
-      userWorker: "-"
+      userStandard: this.id as string,
+      userWorker: "-",
+      stage: '0'
     };
 
     this.pcService.create(computer).then(_ => {
