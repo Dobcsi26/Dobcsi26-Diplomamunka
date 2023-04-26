@@ -5,39 +5,30 @@
     width: 80%;
   }
   
-  .full-width {
-    width: 100%;
-    border-radius: 5px;
-  }
-  
-  .label-text {
-    color: black;
-  }
+.full-width {
+  width: 100%;
+  border-radius: 5px;
+}
 
-  .container {
-    width: 600px;
-    height: 96%;
-    border: 2px black solid;
-    border-radius: 4px;
-    background-color: #d5d5d5;
+.label-text {
+  color: black;
+}
+
+.outer {
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
   
-    position: relative;
-    top: 2%;
-    left: 30%;
-  }
-  
-  .text {
-    color: black;
-    margin-top: 10px;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  .button {
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+.container {
+  width: 50%;
+  border: 2px black solid;
+  border-radius: 4px;
+  background-color: #d5d5d5;
+
+  position: relative;
+  top: 20%;
+  left: 25%;
 
   div {
     display: flex;
@@ -46,10 +37,17 @@
     text-align: center;
     height: 100%;
   }
-  
-  #choose-form {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    margin-right: 10px;
-  }
+}
+
+.text {
+  color: black;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.button {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

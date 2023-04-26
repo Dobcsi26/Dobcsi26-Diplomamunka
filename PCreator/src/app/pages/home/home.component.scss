@@ -3,14 +3,8 @@
     border: 2px black solid;
     border-radius: 4px;
     background-color: #d5d5d5;
-    align-items: center;
-  
-    position: relative;
-    top: 4%;
-    bottom: 10%;
-    margin-top: 10px;
-    left: 4%;
-    right: 4%;
+      margin: 0 auto;
+      text-align: center;
   }
 
   .news{
@@ -19,14 +13,8 @@
     border-radius: 4px;
     background-color: #afafaf;
   
-    position: relative;
-    top: 4%;
-    bottom: 10%;
-    margin-top: 10px;
-    left: 4%;
-    right: 4%;
-  }
-
-  .stage{
-    float: right;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
   }

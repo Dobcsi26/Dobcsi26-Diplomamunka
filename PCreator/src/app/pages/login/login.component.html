@@ -1,17 +1,19 @@
-<div class="container">
-    <h1 class="text">Login</h1>
-    <form class="form">
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label class="label-text" for="email">Email </mat-label>
-            <input matInput type="email" [formControl]="email" />
-        </mat-form-field>
+<div class="outer">
+    <div class="container">
+        <h1 class="text">Login</h1>
+        <form class="form">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label class="label-text" for="email">Email </mat-label>
+                <input matInput type="email" [formControl]="email" />
+            </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label class="label-text" for="password">Password </mat-label>
-            <input matInput type="password" [formControl]="password" />
-        </mat-form-field>
-        <span>
-            <span><button class="button" mat-raised-button (click)="login()">Login</button></span>
-        </span>
-    </form>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label class="label-text" for="password">Password </mat-label>
+                <input matInput type="password" [formControl]="password" />
+            </mat-form-field>
+            <span>
+                <span><button class="button" mat-raised-button (click)="login()">Login</button></span>
+            </span>
+        </form>
+    </div>
 </div>

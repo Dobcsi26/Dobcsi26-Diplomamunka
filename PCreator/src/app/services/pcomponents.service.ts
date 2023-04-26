@@ -57,4 +57,8 @@ export class PcomponentsService {
   getAllSSD() {
     return this.afs.collection<SSD>(this.collectionNameSSD).valueChanges();
   }
+
+  getCPUById(id: string) {
+    return this.afs.collection<CPU>(this.collectionNameCPU).doc(id).valueChanges();
+  }
 }

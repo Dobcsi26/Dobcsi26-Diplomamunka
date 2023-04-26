@@ -24,7 +24,9 @@ export class ComputerService {
     return this.afs.collection<Computer>(this.collectionName).doc(id).valueChanges();
   }
 
-  update(pc: Computer) {
+  update(pc: Computer, progress: string) {
+    console.log(progress)
+    pc.stage = progress;
     return this.afs.collection<Computer>(this.collectionName).doc(pc.id).set(pc);
   }
 

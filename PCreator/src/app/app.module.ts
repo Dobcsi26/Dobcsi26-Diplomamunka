@@ -20,6 +20,8 @@ import { MenuComponent } from './components/menu/menu.component';
 
 
 import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { MatButtonModule } from '@angular/material/button';
     // App
     AppRoutingModule,
     MatButtonModule,
+    MatIconModule,
 
     // Firebase
     AngularFireModule.initializeApp(environment.firebase),

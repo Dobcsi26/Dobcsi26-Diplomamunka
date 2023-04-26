@@ -14,4 +14,8 @@ export class NewsService {
   getAllNews() {
     return this.afs.collection<News>(this.collectionName).valueChanges();
   }
+
+  delete(id: string) {
+    return this.afs.collection<News>(this.collectionName).doc(id).delete();
+  }
 }

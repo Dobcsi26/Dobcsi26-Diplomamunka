@@ -14,8 +14,14 @@
   color: black;
 }
 
+.outer {
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .container {
-  width: 600px;
+  width: 50%;
   height: 40%;
   border: 2px black solid;
   border-radius: 4px;
@@ -23,7 +29,7 @@
 
   position: absolute;
   top: 25%;
-  left: 30%;
+  left: 25%;
 }
 
 .text {

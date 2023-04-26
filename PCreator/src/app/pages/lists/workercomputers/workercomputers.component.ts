@@ -6,6 +6,17 @@ import { Router } from '@angular/router';
 
 import { ComputerService } from 'src/app/services/computer.service';
 import { Computer } from 'src/app/models/models/pc';
+import { PcomponentsService } from 'src/app/services/pcomponents.service';
+
+import { CPU } from '../../../models/models/pc_components/cpu';
+import { GPU } from '../../../models/models/pc_components/gpu';
+import { HDD } from '../../../models/models/pc_components/hdd';
+import { MB } from '../../../models/models/pc_components/mb';
+import { PC_case } from '../../../models/models/pc_components/pc_case';
+import { PSU } from '../../../models/models/pc_components/psu';
+import { RAM } from '../../../models/models/pc_components/ram';
+import { SSD } from '../../../models/models/pc_components/ssd';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-workercomputers',
@@ -20,11 +31,27 @@ export class WorkercomputersComponent implements OnInit {
 
   computers?: Array<Computer>;
 
-  constructor(private computerService: ComputerService, private router: Router) { }
+  cpu?: CPU;
+  gpu?: GPU;
+  hdd?: HDD;
+  mb?: MB;
+  pc_case?: PC_case;
+  psu?: PSU;
+  ram?: RAM;
+  ssd?: SSD;
+
+  constructor(
+    private computerService: ComputerService,
+    private router: Router,
+    private componentService: PcomponentsService,
+    private userService: UserService
+    ) { }
 
   ngOnInit(): void {
-    this.computerService.getPCbyWorkerUserID('xOo5VHjMSURJYXXiCAiK4hQWXry1').subscribe((data: Array<Computer>) => {
-      console.log(data);
+    const user = JSON.parse(localStorage.getItem('user') as string) as firebase.default.User;
+
+    this.computerService.getPCbyWorkerUserID(user.uid).subscribe((data: Array<Computer>) => {
+      console.log(user.uid);
       this.computers = data;
     })
   }
@@ -33,13 +60,10 @@ export class WorkercomputersComponent implements OnInit {
     this.computerService.delete(id);
   }
 
-  update(computer: Computer){
-    this.computerService.update(computer);
-  }
 
-  /*updateProgress(computer: Computer){
-    computer.stage = this.updateForm.get('progress')?.value;
-    this.computerService.update(computer);
-  }*/
+  updateProgress(computer: Computer, progress: string){
+    console.log(progress)
+    this.computerService.update(computer, progress);
+  }
 
 }

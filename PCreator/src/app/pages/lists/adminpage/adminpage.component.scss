@@ -1,0 +1,61 @@
+.container {
+    max-width: 90%;
+    border: 2px black solid;
+    border-radius: 4px;
+    background-color: #d5d5d5;
+    align-items: center;
+  
+    position: relative;
+    top: 4%;
+    bottom: 10%;
+    margin-top: 10px;
+    left: 4%;
+    right: 4%;
+  }
+
+  .news{
+    max-width: 90%;
+    border: 2px black solid;
+    border-radius: 4px;
+    background-color: #afafaf;
+    justify-content: center;
+
+    position: relative;
+    top: 18%;
+    bottom: 10%;
+    margin-top: 10px;
+    left: 4%;
+    right: 4%;
+  }
+
+  .icon{
+    float: right;
+    color: black;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+    margin-left: 16px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .buttons{
+    position: absolute;
+    top: 18%;
+    right: 8px;
+    float: right;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .button{
+    margin: 2px;
+  }

@@ -11,34 +11,51 @@
     margin-top: 10px;
     left: 4%;
     right: 4%;
-  }
+}
 
-  .inner-container{
-    width: 90%;
-    border: 2px black solid;
-    border-radius: 4px;
-    background-color: #afafaf;
+.computers{
+  max-width: 90%;
+  height: 100%;
+  border: 2px black solid;
+  border-radius: 4px;
+  background-color: #afafaf;
+
+  position: relative;
+  top: 4%;
+  bottom: 10%;
+  margin-top: 10px;
+  left: 5%;
+  right: 5%;
+}
+
+.buttons{
+  position: absolute;
+  bottom: 3%;
+  right: 8px;
+  float: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.button{
+  top: 2px;
+  margin: 2px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+  margin-left: 16px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+h1 {
+  margin-left: 10px;
+}
+
   
-    position: relative;
-    top: 4%;
-    bottom: 10%;
-    margin-top: 10px;
-    left: 4%;
-    right: 4%;
-  }
-
-  .buttons{
-    position: absolute;
-    top: 2px;
-    right: 16px;
-    float: right;
-    display: flex;
-    flex-direction: column;
-
-  }
-
-  .button{
-    top: 2px;
-    margin: 2px;
-  }
-

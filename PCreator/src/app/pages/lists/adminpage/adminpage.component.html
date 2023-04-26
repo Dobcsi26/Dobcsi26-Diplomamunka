@@ -1,1 +1,42 @@
-<p>adminpage works!</p>
+<div class="container">
+    <div>
+        <button type="submit" (click)="setPicked('Users')" class="button" style="background-color: rgba(68, 68, 68, 0.425);" mat-button>Users</button>
+        <button type="submit" (click)="setPicked('News')" class="button" style="background-color: rgba(68, 68, 68, 0.425);" mat-button>New</button>
+    </div>
+    <div *ngIf="picked === 'Users'">
+        <div class="news" *ngFor="let user of users; let i = index;">
+            <div class="row">
+                <div class="flex">
+                    <h4><b>ID:</b> {{user.id}}</h4>
+                </div>
+                <div class="flex">
+                    <h4><b>E-mail:</b>> {{user.email}}</h4>
+                </div>
+                <div class="flex">
+                    <h4> {{user.permission}}</h4>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button (click)="deleteUser(user.id)" class="button" type="submit" style="background-color: rgba(255, 0, 0, 0.425);"  mat-raised-button>Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="picked === 'News'">
+        <div class="news" *ngFor="let new of news; let i = index;">
+            <div class="row">
+                <div class="flex">
+                    <h4><b>ID:</b> {{new.id}}</h4>
+                </div>
+                <div class="flex">
+                    <h4><b>Title:</b> {{new.title}}</h4>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button (click)="deleteNew(new.id)" class="button" type="submit" style="background-color: rgba(255, 0, 0, 0.425);"  mat-raised-button>Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

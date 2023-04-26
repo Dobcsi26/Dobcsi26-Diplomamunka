@@ -1,73 +1,73 @@
-<div class="container">
+<div class="outer">
+    <div class="container">
 
-    <h1 class="text">Create computer</h1> 
-    
-    <form [formGroup]="compterCreateForm" (ngSubmit)="onSubmit()" class="form">
+        <h1 class="text">Create computer</h1> 
+        
+        <form [formGroup]="compterCreateForm" (ngSubmit)="onSubmit()" class="form">
 
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label class="label-text" for="name">Name your setup </mat-label>
-            <input matInput type="text" formControlName="name" />
-        </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label class="label-text" for="name">Name your setup </mat-label>
+                <input matInput type="text" formControlName="name" />
+            </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label for="CPU" class="label-text">CPU</mat-label>
-            <mat-select type="text" matInput formControlName="CPU">
-                <mat-option value={{cpu.id}} *ngFor="let cpu of cpus; let i = index;">{{cpu.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label for="CPU" class="label-text">CPU</mat-label>
+                <mat-select type="text" matInput formControlName="CPU">
+                    <mat-option value={{cpu.name}} *ngFor="let cpu of cpus; let i = index;">{{cpu.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label for="GPU" class="label-text">GPU</mat-label>
-            <mat-select type="text" matInput formControlName="GPU">
-                <mat-option value={{gpu.id}} *ngFor="let gpu of gpus; let i = index;">{{gpu.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label for="GPU" class="label-text">GPU</mat-label>
+                <mat-select type="text" matInput formControlName="GPU">
+                    <mat-option value={{gpu.name}} *ngFor="let gpu of gpus; let i = index;">{{gpu.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label for="HDD" class="label-text">HDD</mat-label>
-            <mat-select type="text" matInput formControlName="HDD">
-                <mat-option value={{hdd.id}} *ngFor="let hdd of hdds; let i = index;">{{hdd.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label for="HDD" class="label-text">HDD</mat-label>
+                <mat-select type="text" matInput formControlName="HDD">
+                    <mat-option value={{hdd.name}} *ngFor="let hdd of hdds; let i = index;">{{hdd.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label for="MB" class="label-text">Motherboard</mat-label>
-            <mat-select type="text" matInput formControlName="MB">
-                <mat-option value={{mb.id}} *ngFor="let mb of mbs; let i = index;">{{mb.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label for="MB" class="label-text">Motherboard</mat-label>
+                <mat-select type="text" matInput formControlName="MB">
+                    <mat-option value={{mb.name}} *ngFor="let mb of mbs; let i = index;">{{mb.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label for="PC_case" class="label-text">PC case</mat-label>
-            <mat-select type="text" matInput formControlName="PC_case">
-                <mat-option value={{pc_case.id}} *ngFor="let pc_case of pc_cases; let i = index;">{{pc_case.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label for="PC_case" class="label-text">PC case</mat-label>
+                <mat-select type="text" matInput formControlName="PC_case">
+                    <mat-option value={{pc_case.name}} *ngFor="let pc_case of pc_cases; let i = index;">{{pc_case.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label for="PSU" class="label-text">PSU</mat-label>
-            <mat-select type="text" matInput formControlName="PSU">
-                <mat-option value={{psu.id}} *ngFor="let psu of psus; let i = index;">{{psu.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label for="PSU" class="label-text">PSU</mat-label>
+                <mat-select type="text" matInput formControlName="PSU">
+                    <mat-option value={{psu.name}} *ngFor="let psu of psus; let i = index;">{{psu.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label for="RAM" class="label-text">Memory</mat-label>
-            <mat-select type="text" matInput formControlName="RAM">
-                <mat-option value={{ram.id}} *ngFor="let ram of rams; let i = index;">{{ram.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label for="RAM" class="label-text">Memory</mat-label>
+                <mat-select type="text" matInput formControlName="RAM">
+                    <mat-option value={{ram.name}} *ngFor="let ram of rams; let i = index;">{{ram.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="fill">
-            <mat-label for="SSD" class="label-text">SSD</mat-label>
-            <mat-select type="text" matInput formControlName="SSD">
-                <mat-option value={{ssd.id}} *ngFor="let ssd of ssds; let i = index;">{{ssd.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label for="SSD" class="label-text">SSD</mat-label>
+                <mat-select type="text" matInput formControlName="SSD">
+                    <mat-option value={{ssd.name}} *ngFor="let ssd of ssds; let i = index;">{{ssd.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <button class="button" type="submit" mat-raised-button>Save</button>
-    </form>
+            <button class="button" type="submit" mat-raised-button>Save</button>
+        </form>
 
-
-    
+    </div>
 </div>

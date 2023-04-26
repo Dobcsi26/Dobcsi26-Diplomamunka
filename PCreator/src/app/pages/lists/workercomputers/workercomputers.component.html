@@ -1,13 +1,28 @@
 <div class="container">
-    <div class="inner-container" *ngFor="let computer of computers; let i = index;">
+    <div class="computers" *ngFor="let computer of computers; let i = index;">
         <h1><b>{{computer.name}}</b></h1>
-        <h4>{{computer.cpu}}</h4>
-        <button (click)="delete(computer.id)" class="button" type="submit" mat-raised-button>Delete</button>
-        <button (click)="update(computer)" class="button" type="submit" mat-raised-button>Update</button>
+        <div class="row">
+            <div class="flex">
+                <h4>- {{computer.cpu}}</h4>
+                <h4>- {{computer.gpu}}</h4>
+                <h4>- {{computer.hdd}}</h4>
+            </div>
+            <div class="flex">
+                <h4>- {{computer.mb}}</h4>
+                <h4>- {{computer.pc_case}}</h4>
+                <h4>- {{computer.psu}}</h4>
+            </div>
+            <div class="flex">
+                <h4>- {{computer.ram}}</h4>
+                <h4>- {{computer.ssd}}</h4>
+            </div>
+        </div>
+        
         <div class="buttons">
-            <button (click)="update(computer)" class="button" type="submit" style="background-color: green;" mat-raised-button>Finised</button>
-            <button (click)="update(computer)" class="button" type="submit" mat-raised-button>Pending</button>
-            <button (click)="update(computer)" class="button" type="submit" style="background-color: rgba(255, 0, 0, 0.425);" mat-raised-button>Refuse</button>
+            <button (click)="updateProgress(computer, '3')" class="button" type="submit" style="background-color: green;" mat-raised-button>Finised</button>
+            <button (click)="updateProgress(computer, '2')" class="button" type="submit" mat-raised-button>Pending</button>
+            <button (click)="updateProgress(computer, '1')" class="button" type="submit" style="background-color: rgba(255, 0, 0, 0.425);" mat-raised-button>Refuse</button>
+            <button (click)="delete(computer.id)" class="button" type="submit" mat-raised-button>Delete</button>
         </div>
     </div>
 </div>

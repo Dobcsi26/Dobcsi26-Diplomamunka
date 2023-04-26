@@ -26,6 +26,8 @@ import { UserService } from 'src/app/services/user.service';
 export class PcreateComponent implements OnInit {
   tmpUser?: User | null;
   id?: string;
+  computers?: Array<Computer>;
+  maxId?: string | undefined;
 
   compterCreateForm = new FormGroup({
     name: new FormControl(''),
@@ -54,7 +56,8 @@ export class PcreateComponent implements OnInit {
       private authService: AuthService,
       private pcService: ComputerService,
       private pcomponentService: PcomponentsService,
-      private userService: UserService
+      private userService: UserService,
+      private computerService: ComputerService
          ) { }
 
   ngOnInit(): void {
@@ -68,40 +71,38 @@ export class PcreateComponent implements OnInit {
     });
 
     this.pcomponentService.getAllCPU().subscribe((data: Array<CPU>) => {
-      console.log(data);
       this.cpus = data;
     })
     this.pcomponentService.getAllGPU().subscribe((data: Array<GPU>) => {
-      console.log(data);
       this.gpus = data;
     })
     this.pcomponentService.getAllHDD().subscribe((data: Array<HDD>) => {
-      console.log(data);
       this.hdds = data;
     })
     this.pcomponentService.getAllMB().subscribe((data: Array<MB>) => {
-      console.log(data);
       this.mbs = data;
     })
     this.pcomponentService.getAllPC_case().subscribe((data: Array<PC_case>) => {
-      console.log(data);
       this.pc_cases = data;
     })
     this.pcomponentService.getAllPSU().subscribe((data: Array<PSU>) => {
-      console.log(data);
       this.psus = data;
     })
     this.pcomponentService.getAllRAM().subscribe((data: Array<RAM>) => {
-      console.log(data);
       this.rams = data;
     })
     this.pcomponentService.getAllSSD().subscribe((data: Array<SSD>) => {
-      console.log(data);
       this.ssds = data;
+    })
+
+    this.computerService.getAll().subscribe((data: Array<Computer>) => {
+      this.computers = data;
+      this.maxId = String(parseInt(this.computers[this.computers.length -1].id) + 1);
     })
   }
 
   onSubmit() {
+    console.log(this.maxId);
     const computer: Computer = {
       name: this.compterCreateForm.get('name')?.value,
       cpu: this.compterCreateForm.get('CPU')?.value,
@@ -112,15 +113,15 @@ export class PcreateComponent implements OnInit {
       psu: this.compterCreateForm.get('PSU')?.value,
       ram: this.compterCreateForm.get('RAM')?.value,
       ssd: this.compterCreateForm.get('SSD')?.value,
-      id: '1',
+      id: this.maxId!,
       userStandard: this.id as string,
-      userWorker: "-",
+      userWorker: "P0yFtoCvbRfWu2wdqBS5lSaJJug1",
       stage: '0'
     };
 
     this.pcService.create(computer).then(_ => {
       console.log('Succesfull create.');
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/lists');
       }).catch(error => {
         console.error(error);
       });
