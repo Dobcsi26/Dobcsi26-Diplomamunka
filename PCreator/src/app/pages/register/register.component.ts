@@ -27,23 +27,25 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.signup(this.signUpFormUser.get('email')?.value, this.signUpFormUser.get('pw')?.value).then(cred => {
-      
-      const user: User = {
-        id: cred.user?.uid as string,
-        email: this.signUpFormUser.get('email')?.value,
-        permission: 1
-      };
-      this.userService.create(user).then(_ => {
-        console.log('User added successfully.');
-        this.router.navigateByUrl('/home');
+    if(this.signUpFormUser.get('pw') == this.signUpFormUser.get('repw')){
+      this.authService.signup(this.signUpFormUser.get('email')?.value, this.signUpFormUser.get('pw')?.value).then(cred => {
+        
+        const user: User = {
+          id: cred.user?.uid as string,
+          email: this.signUpFormUser.get('email')?.value,
+          permission: 1
+        };
+        this.userService.create(user).then(_ => {
+          console.log('User added successfully.');
+          this.router.navigateByUrl('/home');
+        }).catch(error => {
+          console.error(error);
+        })
+    
       }).catch(error => {
         console.error(error);
-      })
-  
-    }).catch(error => {
-      console.error(error);
-    });
+      });
+    }
   }
 
  
