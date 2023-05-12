@@ -1,14 +1,14 @@
 {
   "targets": {
-    "jobling-web": {
+    "diplomamunka": {
       "hosting": {
-        "JOBling": [
-          "jobling-web"
+        "diplomamunka": [
+          "diplomamunka"
         ]
       }
     }
   },
   "projects": {
-    "default": "jobling-web"
+    "default": "diplomamunka"
   }
 }
