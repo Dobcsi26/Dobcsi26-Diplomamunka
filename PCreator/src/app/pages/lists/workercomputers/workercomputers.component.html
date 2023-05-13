@@ -1,6 +1,7 @@
 <div class="container">
     <div class="computers" *ngFor="let computer of computers; let i = index;">
         <h1><b>{{computer.name}}</b></h1>
+        <h3>Status: {{computer.stage}}</h3>
         <div class="row">
             <div class="flex">
                 <h4>- {{computer.cpu}}</h4>
@@ -15,6 +16,9 @@
             <div class="flex">
                 <h4>- {{computer.ram}}</h4>
                 <h4>- {{computer.ssd}}</h4>
+            </div>
+            <div >
+                
             </div>
         </div>
         

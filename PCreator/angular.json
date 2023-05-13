@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "JOBling:build:production"
+              "browserTarget": "diplomamunka:build:production"
             },
             "development": {
-              "browserTarget": "JOBling:build:development"
+              "browserTarget": "diplomamunka:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "JOBling:build"
+            "browserTarget": "diplomamunka:build"
           }
         },
         "test": {
@@ -111,13 +111,13 @@
           "options": {
             "prerender": false,
             "ssr": false,
-            "browserTarget": "JOBling:build:production",
-            "firebaseProject": "jobling-web",
-            "firebaseHostingSite": "jobling-web"
+            "browserTarget": "diplomamunka:build:production",
+            "firebaseProject": "diplomamunka",
+            "firebaseHostingSite": "diplomamunka"
           }
         }
       }
     }
   },
-  "defaultProject": "JOBling"
+  "defaultProject": "diplomamunka"
 }
